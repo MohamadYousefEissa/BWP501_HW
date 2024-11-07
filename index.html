@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Commerce Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="container text-white py-3">
+        <div class="row">
+          <div class="col d-flex flex-wrap gap-1 gap-md-4 flex-column flex-md-row d-none d-md-flex">
+            <div><i class="bi bi-telephone-fill"></i> +963963447895</div>
+            <div>
+              <a href="mailto:shop@gmail.com"><i class="bi bi-envelope-fill"></i> shop@example.com</a>
+            </div>
+          </div>
+          <div class="col d-flex gap-4 justify-content-md-end">
+            <a href="#aboutus-section" class="me-0 me-md-5"> Aboutus</a>
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="start-section">
+      <div>
+        <img src="./images/e-commerce-laptop.jpg"  alt="image" draggable="false" />
+        <div class="caption d-md-block text-secondary">
+          <div>Welcome to Our <br> E-Commerce <br> Shop <br> 
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container mb-5 pb-5 mt-3">
+        <div class="row p-3">
+          <div class="dropdown-right">
+            <button class="bg-transparent border-0 position-relative" data-bs-toggle="dropdown" aria-expanded="false"
+              data-bs-auto-close="outside">
+              <div class="text-end text-primary">
+                <i class="bi bi-cart-fill"></i> Cart
+              </div>
+              <span class="position-absolute top-0 start-100 translate-middle badge p-1 bg-danger d-none">
+              </span>
+            </button>
+            <div class="dropdown-menu shadow">
+              <div class="container" id="cart-container"><span class="opacity-75">No Products</span></div>
+            </div>
+          </div>
+          <div class="alert alert-danger mt-3 d-none m-0" role="alert" id="error-alert">Error fetching data. Please check your
+            internet
+          </div>
+        </div>
+        <div class="float-end text-secondary d-none d-md-inline"><i class="bi bi-exclamation-circle"></i> Click on the Product to See its Details</div>
+      </div>
+    </section>
+    <section id="products" class="pb-5">
+      <div class="container">
+        <div class="row justify-content-center gap-5"></div>
+      </div>
+    </section>
+
+
+
+    <section id="aboutus-section" class="my-5 pb-5 pt-3">
+      <h1 class="text-center mb-5 pb-5" style="font-size: 80px">
+        <span style="color: deeppink;">About</span><span class="text-primary">Us</span>
+      </h1>
+      <div class="container mt-5">
+        <div class="row gap-5 align-items-center">
+          <div class="col-lg-12 col-xl ">
+            <div>
+              <img src="./images/aboutus-bg.png" class="img-fluid" alt="image" />
+            </div>
+          </div>
+          <div class="col">
+            <div class="bg-primary p-4 p-md-5 rounded-3 position-relative text-white">
+              <article>
+                <p>
+                  At Our Shop, our mission extends beyond merely offering products; we aim to create an exceptional shopping experience. From the moment you browse our selection to the instant you unbox your purchase.
+                  Our dedicated team works tirelessly to provide not just a service. and this is reflected in everything we do.
+                  Our Core Values:
+                <ul>
+                  <li>Customer Commitment: We go above and beyond to ensure your satisfaction.</li>
+                  <li>Quality: We stand behind the excellence of our products.
+                  </li>
+                  <li>Integrity: We conduct our business with honesty and transparency.
+                  </li>
+                  <li>Innovation: We continually seek ways to improve your shopping experience.
+                  </li>
+                </ul>
+                </p>
+              </article>
+              <div class="container rounded-4 mt-2" id="details-cont">
+                <div class="row text-center py-3">
+                  <div class="col p-0">
+                    <h2>2M+</h2>
+                    <span>Customers</span>
+                  </div>
+                  <div class="col p-0">
+                    <h2>99+</h2>
+                    <span>Employees</span>
+                  </div>
+                  <div class="col p-0">
+                    <h2>999+</h2>
+                    <span>Products</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="d-flex flex-column align-items-center justify-content-center w-100">
+      <div class="scroll-top position-absolute" onclick="window.scrollTo(0,0)">
+        <i class="bi bi-arrow-up"></i>
+      </div>
+      <div class="container icon-footer-container ">
+        <div class="row justify-content-center gap-5 gap-md-0">
+          <div class="col-12 col-md">
+            <div class="d-flex justify-content-start justify-content-md-center">
+              <i class="bi bi-telephone-fill"></i>
+              <div class="footer-information ms-1">
+                <span class="d-block">Helpline</span>
+                <span class="d-block fw-bold">+963963789165</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md">
+            <div class="d-flex justify-content-start justify-content-md-center">
+              <i class="bi bi-envelope-fill"></i>
+              <div class="footer-information ms-2">
+                <span class="d-block">SendEmail</span>
+                <span class="d-block fw-bold">shop@example.com</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md">
+            <div class="d-flex justify-content-start justify-content-md-center">
+              <i class="bi bi-geo-alt-fill"></i>
+              <div class="footer-information ms-1">
+                <span class="d-block">Location</span>
+                <span class="d-block fw-bold">Syria ,Damascus</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-white fw-semibold mb-2 mt-3 mt-md-5 pt-5 text-center">
+        Copyright © 2024 Shop for Social Impact - All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./app.js"></script>
+
+</body>
+
+</html>

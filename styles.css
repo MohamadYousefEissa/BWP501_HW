@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap");
+
+nav {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  padding-top: 0.5rem;
+}
+nav * {
+  color: #1119;
+}
+a {
+  text-decoration: none;
+}
+#start-section img {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  object-fit: cover;
+}
+.caption {
+  position: absolute;
+  font-size: 4vw;
+  font-weight: bold;
+  top: 30%;
+  left: 8vw;
+  text-align: start;
+  font-family: "Kalam", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: #000;
+}
+
+.card-img-top {
+  height: 300px;
+  cursor: pointer;
+}
+.img-cart {
+  width: 150px;
+  height: 100px;
+}
+
+.product-quantity {
+  border: 0;
+  width: 22px;
+  text-align: center;
+  background: transparent;
+  color: black;
+}
+.add-to-cart-btn {
+  transition: all 0.3s;
+}
+.add-to-cart-btn:disabled {
+  background: green;
+  border: 0;
+}
+
+article {
+  font-weight: 500;
+}
+#details-cont {
+  background: white;
+  color: black;
+}
+#details-cont h2 {
+  margin-bottom: 0;
+  color: deeppink;
+  margin-left: 0.6rem;
+}
+#details-cont span {
+  color: grey;
+}
+#details-cont,
+#details-cont h2 {
+  font-weight: bold;
+}
+
+footer {
+  background-color: var(--bs-primary);
+  margin-top: 10rem;
+}
+footer i {
+  color: white;
+  font-size: 32px;
+}
+.footer-information {
+  color: white;
+}
+.icon-footer-container {
+  padding-top: 80px;
+}
+.scroll-top {
+  display: grid;
+  place-items: center;
+  width: 70px;
+  height: 70px;
+  margin-top: -260px;
+  right: 60px;
+  cursor: pointer;
+  border: 1px solid white;
+  background-color: deeppink;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.badge {
+  font-size: 10px;
+  margin-top: -0.1rem;
+  margin-left: 0.2rem;
+}
+#pay-card input {
+  width: 200px;
+}
+.cvv-icon {
+  width: 30px;
+  position: absolute;
+  right: 2rem;
+}
+@media screen and (max-width: 1023px) {
+  #start-section img {
+    height: 70vh;
+  }
+}
+@media screen and (max-width: 766px) {
+  #start-section img {
+    height: 40vh;
+  }
+  .caption {
+    font-size: 4vw;
+    top: 15%;
+  }
+  #cart-container .col {
+    font-size: 14px;
+  }
+
+  .icon-footer-container {
+    padding-top: 40px;
+  }
+  .scroll-top {
+    margin-top: -410px;
+  }
+  #pay-card input {
+    width: 100%;
+  }
+  .dropdown form {
+    width: 100vw;
+  }
+}
