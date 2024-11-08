@@ -145,6 +145,7 @@ for (let i = 0; i < products.length; i++) {
     cart.push(products[i]);
     productsControlBtns();
     addToCart();
+    fetchToCart();
   });
 }
 //change button text and disable the increase and decrease buttons
@@ -255,6 +256,7 @@ function addToCart() {
     });
     cart = [];
     addToCart();
+    fetchToCart();
     emptyCart(); //cal this to show 'no products' word
   });
 }
@@ -283,6 +285,7 @@ function removeFromCart(i) {
   /*splice use to remove item from array, i refer to the index will remove from array,
    and 1 to numbers of items you wanna remove after this index*/
   addToCart();
+  fetchToCart();
   emptyCart();
 }
 
@@ -293,4 +296,34 @@ function emptyCart() {
   }
 }
 
-emptyCart();
+function fetchFromCart() {
+  fetch("get_array.php")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Retrieved array:", data);
+      cart = data;
+      productsControlBtns();
+      addToCart();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+function fetchToCart() {
+  const jsonString = JSON.stringify(cart);
+  fetch("save_array.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: "json=" + encodeURIComponent(jsonString),
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      console.log("Success:", data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+fetchFromCart();
