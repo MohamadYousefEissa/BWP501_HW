@@ -199,46 +199,16 @@ function addToCart() {
 <div>
 <button class="btn btn-danger" id="delete-all-btn">Delete All</button>
 
-<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-  Buy
-</button>
-<div class="dropdown">
-  <form class="dropdown-menu p-4" id="pay-card">
-      <label class="form-label">Location</label>
-      <input autocomplete="off" required name="location" type="text" class="form-control w-100" placeholder="Location">
-      <label  class="form-label mt-2">Card number</label>
-      <input inputmode="numeric" autocomplete="off" required name="card-number" type="text" class="form-control w-100" placeholder="Card number">
-
-      <div class="d-flex gap-3 mt-2 mb-2">
-        <input inputmode="numeric" autocomplete="off" required name="mm/yy" type="text" class="form-control" placeholder="MM / YY">
-        <input inputmode="numeric" autocomplete="off" required name="cvv" type="text" class="form-control" placeholder="CVV">
-        <img src="./images/cvv-icon.png" class="cvv-icon" />
-      </div>
-
-      <label class="form-label">Billing address</label>
-      <div class="d-flex gap-3 mb-2">
-        <input autocomplete="off" required name="first-name" type="text" class="form-control" placeholder="First name">
-        <input autocomplete="off" required name="last-name" type="text" class="form-control" placeholder="Last name">
-      </div>
-      <button type="submit" class="btn btn-primary">Buy Now</button>
-  </form>
-</div>
-
+<a href="orders.html">
+  <button class="btn btn-primary">
+    Buy
+  </button>
+</a>
 </div>
 </div>
 
 `;
-  const form = document.querySelector("#pay-card");
-  form.addEventListener("submit", (res) => {
-    res.preventDefault();
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Done, your order is send successfully",
-      showConfirmButton: false,
-      timer: 1500,
-    });
-  });
+
   //delete all products from cart
   deleteAllBtn = document.querySelector("#delete-all-btn");
   deleteAllBtn.addEventListener("click", () => {
@@ -320,7 +290,6 @@ function fetchFromCart() {
   fetch("get_cart.php")
     .then((response) => response.json())
     .then((data) => {
-      console.log("Retrieved array:", data);
       cart = data;
       productsControlBtns();
       addToCart();

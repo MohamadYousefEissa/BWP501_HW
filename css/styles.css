@@ -110,14 +110,7 @@ footer i {
   margin-top: -0.1rem;
   margin-left: 0.2rem;
 }
-#pay-card input {
-  width: 200px;
-}
-.cvv-icon {
-  width: 30px;
-  position: absolute;
-  right: 2rem;
-}
+
 th,
 tr,
 td {
@@ -156,11 +149,5 @@ tbody tr:nth-of-type(odd) {
   }
   .scroll-top {
     margin-top: -410px;
-  }
-  #pay-card input {
-    width: 100%;
-  }
-  .dropdown form {
-    width: 100vw;
   }
 }
