@@ -75,8 +75,8 @@ products.forEach((product) => {
     <div
       class="d-flex gap-2 justify-content-center align-items-center"
     >
-      <button class="add-to-cart-btn btn btn-primary me-4" >
-        Add to Cart
+      <button class="add-to-cart-btn btn btn-primary me-4" disabled >
+        Must Login 
       </button>
       <button class="minus btn border-0 p-1 rounded-5">
         <i class="bi bi-dash"></i>
@@ -296,6 +296,21 @@ function emptyCart() {
   }
 }
 
+function isLogged() {
+  const isLogged = localStorage.getItem("isLogged");
+  const log = document.querySelector("#log-field");
+  if (isLogged) {
+    addToCartBtn.forEach((btn) => {
+      btn.innerHTML = "Add to Cart";
+      btn.disabled = false;
+    });
+    log.innerHTML = `
+    <button id="logout-button" class="border-0 bg-transparent ms-0 ms-md-5 "><i class="bi bi-box-arrow-left"></i> Logout</button>
+    `;
+    logOut();
+  }
+}
+
 function fetchFromCart() {
   fetch("get_array.php")
     .then((response) => response.json())
@@ -326,4 +341,18 @@ function fetchToCart() {
       console.error("Error:", error);
     });
 }
+
+function logOut() {
+  document
+    .getElementById("logout-button")
+    .addEventListener("click", async () => {
+      const response = await fetch("logout.php", { method: "POST" });
+      const text = await response.text();
+      if (text === "Logout successful") {
+        localStorage.removeItem("isLogged");
+        window.location.href = "index.html";
+      }
+    });
+}
 fetchFromCart();
+isLogged();

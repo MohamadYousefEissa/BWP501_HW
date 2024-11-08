@@ -16,20 +16,24 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    $sql = "SELECT array_column FROM user_arrays WHERE user_id = $user_id";
+    $sql = "SELECT id, password FROM users WHERE username='$username'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        echo $row['array_column'];
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['user_id'] = $row['id'];
+            echo "Login successful";
+        } else {
+            echo "Invalid password";
+        }
     } else {
-        echo json_encode([]);
+        echo "User not found";
     }
-} else {
-    echo "Not authenticated";
 }
 
 $conn->close();
