@@ -118,6 +118,22 @@ footer i {
   position: absolute;
   right: 2rem;
 }
+th,
+tr,
+td {
+  border: 1px solid #c4dcf3;
+  text-align: center;
+}
+thead {
+  color: white;
+  background: var(--bs-primary);
+}
+tbody {
+  font-weight: 500;
+}
+tbody tr:nth-of-type(odd) {
+  background: #eef7ff;
+}
 @media screen and (max-width: 1023px) {
   #start-section img {
     height: 70vh;

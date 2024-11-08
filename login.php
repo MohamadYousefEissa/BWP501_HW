@@ -5,16 +5,8 @@ error_reporting(E_ALL);
 
 session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "my_auth_db";
+require "db.php";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];

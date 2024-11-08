@@ -5,16 +5,7 @@ error_reporting(E_ALL);
 
 session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "my_auth_db";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require "db.php";
 
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];

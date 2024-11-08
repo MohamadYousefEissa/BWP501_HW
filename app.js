@@ -75,9 +75,9 @@ products.forEach((product) => {
     <div
       class="d-flex gap-2 justify-content-center align-items-center"
     >
-      <button class="add-to-cart-btn btn btn-primary me-4" disabled >
-        Must Login 
-      </button>
+      <div id="product-button-field">
+        <a href="login.html"><button class="btn btn-secondary">Login to Add</button></a>
+      </div>
       <button class="minus btn border-0 p-1 rounded-5">
         <i class="bi bi-dash"></i>
       </button>
@@ -121,7 +121,7 @@ products.forEach((product) => {
 const plus = document.querySelectorAll(".plus");
 const minus = document.querySelectorAll(".minus");
 const productQuantity = document.querySelectorAll(".product-quantity");
-const addToCartBtn = document.querySelectorAll(".add-to-cart-btn");
+let addToCartBtn;
 let cart = [];
 const cartContainer = document.querySelector("#cart-container");
 const cartBadge = document.querySelector(".badge");
@@ -140,12 +140,6 @@ for (let i = 0; i < products.length; i++) {
     if (products[i].quantity === 1) return;
     products[i].quantity--;
     productQuantity[i].value = products[i].quantity;
-  });
-  addToCartBtn[i].addEventListener("click", () => {
-    cart.push(products[i]);
-    productsControlBtns();
-    addToCart();
-    fetchToCart();
   });
 }
 //change button text and disable the increase and decrease buttons
@@ -299,10 +293,21 @@ function emptyCart() {
 function isLogged() {
   const isLogged = localStorage.getItem("isLogged");
   const log = document.querySelector("#log-field");
+  const productBtnField = document.querySelectorAll("#product-button-field");
   if (isLogged) {
-    addToCartBtn.forEach((btn) => {
-      btn.innerHTML = "Add to Cart";
-      btn.disabled = false;
+    productBtnField.forEach((field, i) => {
+      field.innerHTML = `
+      <button class="add-to-cart-btn btn btn-primary me-4"  >
+          Add to Cart
+      </button>
+      `;
+      addToCartBtn = document.querySelectorAll(".add-to-cart-btn");
+      addToCartBtn[i].addEventListener("click", () => {
+        cart.push(products[i]);
+        productsControlBtns();
+        addToCart();
+        fetchToCart();
+      });
     });
     log.innerHTML = `
     <button id="logout-button" class="border-0 bg-transparent ms-0 ms-md-5 "><i class="bi bi-box-arrow-left"></i> Logout</button>
@@ -312,7 +317,7 @@ function isLogged() {
 }
 
 function fetchFromCart() {
-  fetch("get_array.php")
+  fetch("get_cart.php")
     .then((response) => response.json())
     .then((data) => {
       console.log("Retrieved array:", data);
@@ -326,7 +331,7 @@ function fetchFromCart() {
 }
 function fetchToCart() {
   const jsonString = JSON.stringify(cart);
-  fetch("save_array.php", {
+  fetch("post_array.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -354,5 +359,5 @@ function logOut() {
       }
     });
 }
-fetchFromCart();
 isLogged();
+fetchFromCart();
